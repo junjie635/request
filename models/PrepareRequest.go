@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"github.com/Danny-Dasilva/fhttp"
 	"github.com/Danny-Dasilva/fhttp/cookiejar"
-	"github.com/wangluozhe/requests/url"
+	"github.com/junjie635/requests/url"
 	"io"
 	"io/ioutil"
 	"strconv"
@@ -139,7 +139,7 @@ func (pr *PrepareRequest) Prepare_body(data *url.Values, files *url.Files, json 
 	}
 	if files != nil {
 		var byteBuffer *bytes.Buffer
-		if data != nil{
+		if data != nil {
 			for _, key := range data.Keys() {
 				files.AddField(key, data.Get(key))
 			}
@@ -203,7 +203,7 @@ func (pr *PrepareRequest) Prepare_auth(auth []string, rawurl string) error {
 		}
 	}
 	if auth != nil && len(auth) == 2 {
-		pr.Headers.Set("Authorization", "Basic " + base64.StdEncoding.EncodeToString([]byte(strings.Join(auth, ":"))))
+		pr.Headers.Set("Authorization", "Basic "+base64.StdEncoding.EncodeToString([]byte(strings.Join(auth, ":"))))
 	}
 	return nil
 }

@@ -1,7 +1,7 @@
 package url
 
 import (
-	"github.com/wangluozhe/requests/utils"
+	"github.com/junjie635/requests/utils"
 	"strings"
 )
 
@@ -23,7 +23,7 @@ func ParseParams(params string) *Params {
 	}
 	for _, l := range strings.Split(params, "&") {
 		value := strings.Split(l, "=")
-		if len(value) == 2{
+		if len(value) == 2 {
 			p.Add(value[0], value[1])
 		}
 	}
@@ -44,7 +44,7 @@ type Params struct {
 // 设置Params参数
 func (p *Params) Set(key, value string) {
 	pm := map[string][]string{
-		key: []string{value,},
+		key: []string{value},
 	}
 	index := SearchStrings(p.indexKey, key)
 	if len(p.indexKey) == 0 || index == -1 {
